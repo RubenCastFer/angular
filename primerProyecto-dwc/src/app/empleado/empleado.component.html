@@ -1,0 +1,37 @@
+<h2>{{title}}</h2>
+<strong>Empleado Estrella</strong>
+<ul>
+    <li>{{empleado.nombre}}</li>
+    <li>{{trabajadores[0].nombre}}</li>
+</ul>
+
+<div *ngIf="trabajadorExterno== true">
+    <button (click)="cambiarExterno(false)">Mostrar trabajador</button>
+    <ul>
+        <li>{{empleadoExter.nombre}}</li>
+        <li>{{empleadoExter.edad}}</li>
+    </ul>
+</div>
+
+<div *ngIf="trabajadorExterno== false">
+    <button (click)="cambiarExterno(true)">Mostrar trabajador externo</button>
+
+    <ul >
+        <li>{{empleado.nombre}}</li>
+        <li>{{empleado.edad}}</li>
+    </ul>
+</div>
+
+<div>
+    <ul>
+        <li *ngFor = "let empleado of trabajadores; let i = index">
+            <strong>Empleado {{i+1}}:</strong>
+            <ul>
+                <li>{{empleado.nombre}}</li>
+                <li>{{empleado.edad}}</li>
+                <li *ngIf="empleado.contratado== true">Está contratado</li>
+                <li *ngIf="empleado.contratado== false">No esta contratado</li>
+            </ul>
+        </li>
+    </ul>
+</div>

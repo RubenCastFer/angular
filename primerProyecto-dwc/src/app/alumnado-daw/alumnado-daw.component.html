@@ -1,0 +1,14 @@
+<h1>{{titulo}}</h1>
+<div>
+    <ul>
+        <li *ngFor = "let alumno of alumnos; let i = index">
+            <strong>Empleado {{i+1}}:</strong>
+            <ul>
+                <li>{{alumno.nombre}}</li>
+                <li>{{alumno.apellido}}</li>
+                <li *ngIf="alumno.curso== 2">2º</li>
+                <li *ngIf="alumno.curso== 1">1º</li>
+            </ul>
+        </li>
+    </ul>
+</div>
