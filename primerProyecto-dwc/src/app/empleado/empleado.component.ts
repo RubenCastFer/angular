@@ -13,13 +13,16 @@ export class EmpleadoComponent implements OnInit {
   public trabajadores:Array<Empleado>;
   public empleadoExter:Empleado;
   public trabajadorExterno:boolean;
+  public color:string;
+  public color_seleccionado:string;
 
   constructor() { 
     this.empleado=new Empleado("ruben",25,"informatico",true);
     this.trabajadores=[new Empleado("juan",25,"admin",true),new Empleado("david",25,"jefe",true)];
     this.empleadoExter=new Empleado("doroti",25,"informatico",true);
     this.trabajadorExterno=true;
-  
+    this.color = 'blue';
+    this.color_seleccionado='#ccc';
   }
 
   cambiarExterno(valor:boolean){
