@@ -1,6 +1,39 @@
 <h1>{{titulo}}</h1>
 
-<input type="button" (click)="toggleShowPrimero()" value="Hide/Show Primero">
+<button [routerLink]="['/alumnadoDaw/', '1']">Primero</button>
+<br>
+<button [routerLink]="['/alumnadoDaw/', '2']">Segundo</button>
+<div>
+    <div *ngIf="curso==1">
+        <ul >
+            <li *ngFor = "let alumno of mostrarPrimero(); let i = index">
+                <strong>Alumno {{i+1}}:</strong>
+                <ul>
+                    <li>{{alumno.nombre}}</li>
+                    <li>{{alumno.apellido}}</li>
+                    <li *ngIf="alumno.curso== 1">1º</li>
+                </ul>
+            </li>
+        </ul>
+        <button (click)="onBack()">Volver</button>
+    </div>
+    <div *ngIf="curso==2">
+        <ul>
+            
+            <li  *ngFor = "let alumno of mostrarSegundo(); let i = index">
+                <strong>Alumno {{i+1}}:</strong>
+                <ul>
+                    <li>{{alumno.nombre}}</li>
+                    <li>{{alumno.apellido}}</li>
+                    <li *ngIf="alumno.curso== 2">2º</li>
+                </ul>
+            </li>
+        </ul>
+        <button (click)="onBack()">Volver</button>
+    </div>
+</div>
+
+<!-- <input type="button" (click)="toggleShowPrimero()" value="Hide/Show Primero">
 <div *ngIf="isShownPrimero">
     <ul >
         <li *ngFor = "let alumno of mostrarPrimero(); let i = index">
@@ -28,4 +61,4 @@
             </ul>
         </li>
     </ul>
-</div>
+</div> -->

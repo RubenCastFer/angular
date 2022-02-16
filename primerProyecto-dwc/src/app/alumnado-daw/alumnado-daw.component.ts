@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlumnadoDAW } from './alumnado';
 
 @Component({
@@ -9,14 +10,19 @@ import { AlumnadoDAW } from './alumnado';
 export class AlumnadoDAWComponent implements OnInit {
   public titulo:string = "Listado Daw"
   public alumnos:Array<AlumnadoDAW>;
+  public curso:number;
 
-  constructor() { 
+  constructor(private actRoute: ActivatedRoute, private _router:Router) { 
 
     this.alumnos=[new AlumnadoDAW("Ruben","Castellano","48963910s",new Date("1996-06-01"),"Dos Hermanas", 679051051,2,["dwc","dws","dwi"]),
                   new AlumnadoDAW("Manuel","Fernandez","48963911s",new Date("1997-07-01"),"Sevilla", 679051052,2,["dwc","dwi"]),
                   new AlumnadoDAW("David","Peñasco","52963910s",new Date("2000-03-05"),"Triana", 679051554,1,["Programacion"]),
                   new AlumnadoDAW("Juan","Calco","52963910s",new Date("2000-03-05"),"Triana", 679051554,1,["Programacion"])]
-  }
+                  
+                  
+                  this.curso = this.actRoute.snapshot.params['id'];
+
+    }
 
   public mostrarPrimero(): AlumnadoDAW[]{
     var alumnosPrimero:Array<AlumnadoDAW>=[];
@@ -55,5 +61,10 @@ toggleShowPrimero() {
 }
 toggleShowSegundo() {
   this.isShownSegundo = ! this.isShownSegundo;
+}
+
+onBack(): void{
+  this._router.navigate(['/alumandoDAW']);
+
 }
 }
