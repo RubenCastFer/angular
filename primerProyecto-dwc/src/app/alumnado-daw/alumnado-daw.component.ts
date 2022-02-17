@@ -56,6 +56,7 @@ ngOnInit(){
   this.isShownPrimero = false; //hidden every time subscribe detects change
 }
 
+
 toggleShowPrimero() {
   this.isShownPrimero = ! this.isShownPrimero;
 }
