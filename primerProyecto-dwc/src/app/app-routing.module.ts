@@ -12,8 +12,6 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'contacto', component: ContactoComponent},
   {path: 'alumnadoDaw', component: AlumnadoDAWComponent},
-  {path: 'coche/:id', component: CocheComponent},
-  {path: 'alumnadoDaw/:id', component: AlumnadoDAWComponent},
 
   //Estas dos rutas deben ir al final
   {path: '', component: EmpleadoComponent},
