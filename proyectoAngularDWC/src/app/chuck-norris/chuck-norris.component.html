@@ -1,13 +1,13 @@
-<h1>chuck-norris works!</h1>
+<!-- <h1>chuck-norris works!</h1> -->
 <!-- <div *ngFor="let elemento of categoria">
     <p>{{elemento}}</p>
 </div> -->
 
 <form [formGroup]="myForm" (ngSubmit)="saveData()">
-    <label for="category">Escoge una categoria:</label>
+    <label for="category">Escoge una categoria:</label><br>
 
     <select  name="category" id="category" formControlName="category">
       <option *ngFor="let elemento of categoria" [ngValue]="elemento">{{elemento}}</option>
-    </select>
-    <button>save</button>>
+    </select><br>
+    <button>Mostrar Frase</button>
 </form>
