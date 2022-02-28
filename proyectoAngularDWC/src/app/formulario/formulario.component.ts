@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -8,33 +7,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class FormularioComponent implements OnInit {
 
-  myForm: FormGroup;
-  constructor(private fb: FormBuilder) {
-
-    this.myForm = this.fb.group({
-      email: new FormControl('', [
-        // validaciones síncronas
-        Validators.required,
-        Validators.email
-      ], [
-        // validaciones asíncronas
-      ]),
-      password: new FormControl('')
-    })
-
-   }
+  constructor() { }
 
   ngOnInit(): void {
-    this.myForm = this.fb.group({
-      email: new FormControl('', [
-        // validaciones síncronas
-        Validators.required,
-        Validators.email
-      ], [
-        // validaciones asíncronas
-      ]),
-      password: new FormControl('')
-    })
   }
 
 }
+//https://jasonwatmore.com/post/2020/07/07/angular-10-reactive-forms-validation-example
