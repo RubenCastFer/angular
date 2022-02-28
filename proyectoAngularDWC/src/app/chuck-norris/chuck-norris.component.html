@@ -3,11 +3,26 @@
     <p>{{elemento}}</p>
 </div> -->
 
-<form [formGroup]="myForm" (ngSubmit)="saveData()">
-    <label for="category">Escoge una categoria:</label><br>
 
-    <select  name="category" id="category" formControlName="category">
-      <option *ngFor="let elemento of categoria" [ngValue]="elemento">{{elemento}}</option>
-    </select><br>
-    <button>Mostrar Frase</button>
+<form [formGroup]="myForm" (ngSubmit)="saveData()">
+  <label for="category">Escoge una categoria:</label><br>
+
+  <select name="category" id="category" formControlName="category">
+    <option *ngFor="let elemento of categoria" [ngValue]="elemento">{{elemento}}</option>
+  </select><br>
+  <button>Mostrar Frase</button>
 </form>
+
+<table>
+  <tr>
+    <th>Frase</th>
+    <th>Acciones</th>
+  </tr>
+  <tr *ngFor="let elemento of frases; let i = index">
+    <td>{{elemento}}</td>
+    <td><input type="button" (click)="borrarFrase(i);" value="borrar"></td>
+  </tr>
+</table>
+<!-- <div *ngFor="let elemento of frases">
+  <p>{{elemento}}</p>
+</div> -->

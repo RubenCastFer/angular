@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChuckNorrisJokeService } from '../chuck-norris-joke.service';
+import { FraseChuckNorrisService } from '../frase-chuck-norris.service';
 import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
 
 @Component({
@@ -10,13 +11,18 @@ import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@ang
 export class ChuckNorrisComponent implements OnInit {
   
   public categoria :Array<String>;
+  public frases :Array<String>;
+  public frase: string;
   public myForm: FormGroup; 
   public category: string=('');
   public respuesta: string=('');
   
   
-  constructor(private fb: FormBuilder, private _peticionesService: ChuckNorrisJokeService) {
+  constructor(private fb: FormBuilder, private _peticionesService: ChuckNorrisJokeService, private _frasePeticionService: FraseChuckNorrisService) {
     this.categoria=[];
+    this.frases=[];
+    this.frase='';
+
     this.myForm=this.fb.group({
       category:["", [Validators.required]]
     });
@@ -37,10 +43,17 @@ export class ChuckNorrisComponent implements OnInit {
     console.log(this.myForm.value);
     this.respuesta=this.myForm.value.category;
     console.log(this.respuesta);
+
+    this._frasePeticionService.recuperarCategoria(this.respuesta).subscribe((data: any)=>{
+      console.log(data.value);
+      this.frase = data.value;
+      this.frases.push(this.frase);
+    });  
   }
-  
-  // obtener(): void{
-  //     // this.categoria=this._peticionesService.obtener();
-  // }
+
+  borrarFrase(index:number){
+    console.log("borrar");
+    this.frases.splice(index,1)
+  }
 
 }
