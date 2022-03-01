@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChuckNorrisJokeService } from '../chuck-norris-joke.service';
 import { FraseChuckNorrisService } from '../frase-chuck-norris.service';
-import { FormBuilder, FormControl, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-chuck-norris',
